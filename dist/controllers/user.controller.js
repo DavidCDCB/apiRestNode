@@ -149,6 +149,89 @@ var _default = {
     }
 
     return saveUser;
+  }(),
+  updateUser: function () {
+    var _updateUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res) {
+      return _regenerator["default"].wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _User["default"].findByIdAndUpdate(req.params.id, req.body, {
+                "new": true
+              }).then(function (datos) {
+                if (datos == null) {
+                  return res.status(404).json(responseBody(false, datos, "Registro no Actualizado"));
+                } else return res.status(200).json(responseBody(true, datos, "Registro Actualizado"));
+              });
+
+            case 3:
+              _context4.next = 9;
+              break;
+
+            case 5:
+              _context4.prev = 5;
+              _context4.t0 = _context4["catch"](0);
+              console.log(_context4.t0);
+              return _context4.abrupt("return", res.status(500).json({
+                alerta: 'Error en servidor'
+              }));
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 5]]);
+    }));
+
+    function updateUser(_x7, _x8) {
+      return _updateUser.apply(this, arguments);
+    }
+
+    return updateUser;
+  }(),
+  deleteUser: function () {
+    var _deleteUser = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res) {
+      return _regenerator["default"].wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _User["default"].findByIdAndDelete(req.params.id).then(function (datos) {
+                if (datos == null) {
+                  return res.status(404).json(responseBody(false, datos, "Registro no Eliminado"));
+                } else return res.status(200).json(responseBody(true, datos, "Registro Eliminado"));
+              });
+
+            case 3:
+              _context5.next = 10;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              Registro;
+              console.log(_context5.t0);
+              return _context5.abrupt("return", res.status(500).json({
+                alerta: 'Error en servidor'
+              }));
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function deleteUser(_x9, _x10) {
+      return _deleteUser.apply(this, arguments);
+    }
+
+    return deleteUser;
   }()
 };
 exports["default"] = _default;

@@ -15,5 +15,7 @@ var router = new _express.Router();
 router.get("/api/users", _user["default"].getUsers);
 router.get("/api/user/:id", _user["default"].getUser);
 router.post("/api/user", _user["default"].saveUser);
+router.put("/api/user/:id", _user["default"].updateUser);
+router["delete"]("/api/user/:id", _user["default"].deleteUser);
 var _default = router;
 exports["default"] = _default;
