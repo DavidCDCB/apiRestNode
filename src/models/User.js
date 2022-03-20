@@ -14,6 +14,11 @@ const usuarioSchema = new Schema({
 		unique: true,
 		required: [true, "El correo es necesario"],
 	},
+	datos: {
+		type: [Object],
+		unique: false,
+		required: [true, "El correo es necesario"],
+	}
 	},
 	{
 		timestamps: true,
