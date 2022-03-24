@@ -1,15 +1,19 @@
 import { Schema, model } from "mongoose";
 
 const grafoSchema = new Schema({
-	nodos: {
+	userId:{
+		type: String,
+		required: [true, ''],
+	},
+	nodes: {
 		type: [Object],
 		required: [true, ''],
 	},
-	aristas: {
+	edges: {
 		type: [Object],
 		required: [true, ''],
 	},
-	adyacencias: {
+	adjacencies: {
 		type: [Object],
 		required: [true, ''],
 	},

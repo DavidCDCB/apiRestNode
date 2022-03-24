@@ -11,7 +11,7 @@ const responseBody = (estado,res,mensaje)=>{
 export default {
 	getGrafos: async (req, res) => {
 		try{
-			await Grafo.find().then((datos,error)=>{
+			await Grafo.find({ 'userId':req.params.id }).then((datos,error)=>{
 				if(datos==null || datos.length == 0 || error){
 					return res.status(404).json(responseBody(false,datos,"Sin resultados"));
 				}else{
