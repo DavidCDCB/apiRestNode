@@ -1,5 +1,10 @@
 import Grafo from "../models/Grafo";
 
+const users = [
+	"8ee60a2e00c90d7e00d5069188dc115b",
+	"0f759dd1ea6c4c76cedc299039ca4f23"
+];
+
 const responseBody = (estado,res,mensaje)=>{
 	return {
 		estatus:estado,
@@ -26,11 +31,11 @@ export default {
 	saveGrafo: async (req, res) => {
 		const grafo = new Grafo(req.body);
 		try{
-			await grafo.save((err,usuarioDB) => {
-				if(err){
-					return res.status(400).json(responseBody(false,err,"Registro Fallido"));
+			await grafo.save((err,dato) => {
+				if(err || users.includes(dato.userId) == false){
+					return res.status(400).json(responseBody(false,err,"Hamburgger not found"));
 				}else{
-					return res.status(200).json(responseBody(true,usuarioDB,"Registro Exitoso"));
+					return res.status(200).json(responseBody(true,dato,"Registro Exitoso"));
 				}
 			});
 		}catch(e){
