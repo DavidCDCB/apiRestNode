@@ -5,19 +5,10 @@ const grafoSchema = new Schema({
 		type: String,
 		required: [true, ''],
 	},
-	nodes: {
+	object: {
 		type: [Object],
 		required: [true, ''],
-	},
-	edges: {
-		type: [Object],
-		required: [true, ''],
-	},
-	adjacencies: {
-		type: [Object],
-		required: [true, ''],
-	},
-	},
+	}},
 	{
 		timestamps: false,
 		versionKey: false

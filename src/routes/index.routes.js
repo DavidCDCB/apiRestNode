@@ -18,7 +18,7 @@ router.delete("/api/user/:id", userController.deleteUser);
 router.get("/api/time/:id", timeController.getTime);
 router.put("/api/time/:id", timeController.updateTime);
 
-router.post("/api/graph", grafoController.saveGrafo);
+router.post("/api/graph/:id", grafoController.saveGrafo);
 router.get("/api/graphs/:id", grafoController.getGrafos);
 router.put("/api/graph/:id", grafoController.updateGrafo);
 router.delete("/api/graph/:id", grafoController.deleteGrafo);
