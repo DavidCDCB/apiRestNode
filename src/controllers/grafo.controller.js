@@ -3,6 +3,7 @@ import Grafo from "../models/Grafo";
 const users = [
 	"8ee60a2e00c90d7e00d5069188dc115b",
 	"0f759dd1ea6c4c76cedc299039ca4f23"
+	
 ];
 
 const responseBody = (estado,res,mensaje)=>{
@@ -33,7 +34,7 @@ export default {
 		try{
 			await grafo.save((err,dato) => {
 				if(err || users.includes(dato.userId) == false){
-					return res.status(400).json(responseBody(false,err,"Hamburgger not found"));
+					return res.status(400).json(responseBody(false,err,"Registro no guardado"));
 				}else{
 					return res.status(200).json(responseBody(true,dato,"Registro Exitoso"));
 				}
@@ -64,7 +65,7 @@ export default {
 				}else
 					return res.status(200).json(responseBody(true,datos,"Registro Eliminado"));
 			}); 
-		}catch(e){Registro
+		}catch(e){
 			console.log(e);
 			return res.status(500).json({alerta:'Error en servidor'});
 		}
